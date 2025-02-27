@@ -42,4 +42,12 @@ function playRound(humanChoice, computerChoice) {
         console.log(`The score is user - ${humanScore}, computer - ${computerScore}`);
     }
 }
-console.log(playRound());
+
+// Create a function that allows user to play 5 rounds and keep score
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        playRound();        
+    }
+    console.log(`The final score is user - ${humanScore}, computer - ${computerScore}`)
+}
+console.log(playGame());

@@ -48,6 +48,6 @@ function playGame() {
     for (let i = 0; i < 5; i++) {
         playRound();        
     }
-    console.log(`The final score is user - ${humanScore}, computer - ${computerScore}`)
+    console.log(`That's a wrap! The final score is user - ${humanScore}, computer - ${computerScore}`)
 }
 console.log(playGame());

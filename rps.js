@@ -24,7 +24,7 @@ let computerScore = 0;
 // Create a function that allows user to play a single round
 function playRound(humanChoice, computerChoice) {
     humanChoice = getHumanChoice();
-    humanChoice.toLowerCase();
+    humanChoice = humanChoice.toLowerCase();
     computerChoice = getComputerChoice();
     if (humanChoice === computerChoice) {
         console.log("It's a tie! Try again.");
@@ -50,4 +50,4 @@ function playGame() {
     }
     console.log(`That's a wrap! The final score is user - ${humanScore}, computer - ${computerScore}`)
 }
-console.log(playGame());
+playGame();

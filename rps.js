@@ -23,18 +23,23 @@ let computerScore = 0;
 
 // Create a function that allows user to play a single round
 function playRound(humanChoice, computerChoice) {
+    humanChoice = getHumanChoice();
     humanChoice.toLowerCase();
+    computerChoice = getComputerChoice();
     if (humanChoice === computerChoice) {
         console.log("It's a tie! Try again.");
-        getHumanChoice();
+        playRound();
     } else if
     ((humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "paper" && computerChoice === "rock") ||
     (humanChoice === "scissors" && computerChoice === "paper")) {
         console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
         humanScore += 1;
+        console.log(`The score is user - ${humanScore}, computer - ${computerScore}`);
     } else {
         console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
         computerScore += 1;
+        console.log(`The score is user - ${humanScore}, computer - ${computerScore}`);
     }
 }
+console.log(playRound());

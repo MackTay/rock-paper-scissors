@@ -4,11 +4,15 @@
 function getComputerChoice() {
     let answer = Math.random();
     if (answer <= 0.333) {
-        return "rock";
+        return "Rock";
     } else if (answer > 0.333 && answer <= 0.666) {
-        return "paper";
+        return "Paper";
     } else {
-        return "scissors";
+        return "Scissors";
     }
 }
-console.log(getComputerChoice());
+
+// Create a function that prompts the user to input their choice and returns it
+function getHumanChoice() {
+    return prompt("Rock, paper, or scissors?");
+}

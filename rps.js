@@ -12,42 +12,52 @@ function getComputerChoice() {
     }
 }
 
-// Create a function that prompts the user to input their choice and returns it
-function getHumanChoice() {
-    return prompt("Rock, paper, or scissors?");
-}
-
 // Create variables that will track human and computer scores
 let humanScore = 0;
 let computerScore = 0;
 
 // Create a function that allows user to play a single round
-function playRound(humanChoice, computerChoice) {
-    humanChoice = getHumanChoice();
-    humanChoice = humanChoice.toLowerCase();
+const humanDisplay = document.querySelector("#playerScore");
+const compDisplay = document.querySelector("#compScore");
+const result = document.querySelector("#result");
+function playRound(event, computerChoice) {
+    humanChoice = event.target.id;
     computerChoice = getComputerChoice();
     if (humanChoice === computerChoice) {
-        console.log("It's a tie! Try again.");
-        playRound();
+        result.textContent = `Computer chose ${computerChoice} It's a tie! Try again.`;
     } else if
     ((humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "paper" && computerChoice === "rock") ||
     (humanChoice === "scissors" && computerChoice === "paper")) {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
+        result.textContent = `You win! ${humanChoice} beats ${computerChoice}! The score is:`;
         humanScore += 1;
-        console.log(`The score is user - ${humanScore}, computer - ${computerScore}`);
+        humanDisplay.textContent = `Player: ${humanScore}`;
     } else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
+        result.textContent = `You lose! ${computerChoice} beats ${humanChoice}! The score is:`;
         computerScore += 1;
-        console.log(`The score is user - ${humanScore}, computer - ${computerScore}`);
+        compDisplay.textContent = `Computer: ${computerScore}`;
+    }
+    
+    if (humanScore == 5) {
+        const finalText = document.createElement("p");
+        const div = document.querySelector("div");
+        finalText.textContent = "You're the winner! Congratulations!!"
+        div.appendChild(finalText);
+    } else if (compScore == 5) {
+        const finalText = document.createElement("p");
+        const div = document.querySelector("div");
+        finalText.textContent = "Computer wins. Good luck next time!"
+        div.appendChild(finalText);
     }
 }
+
+
 
 // Add event listeners for each button
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        playRound(button.id);
+    button.addEventListener("click", (event) => {
+        playRound(event);
     });
 });

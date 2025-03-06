@@ -43,7 +43,7 @@ function playRound(event, computerChoice) {
         const div = document.querySelector("div");
         finalText.textContent = "You're the winner! Congratulations!!"
         div.appendChild(finalText);
-    } else if (compScore == 5) {
+    } else if (computerScore == 5) {
         const finalText = document.createElement("p");
         const div = document.querySelector("div");
         finalText.textContent = "Computer wins. Good luck next time!"

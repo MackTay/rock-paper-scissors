@@ -43,11 +43,11 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-// Create a function that allows user to play 5 rounds and keep score
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        playRound();        
-    }
-    console.log(`That's a wrap! The final score is user - ${humanScore}, computer - ${computerScore}`)
-}
-playGame();
+// Add event listeners for each button
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playRound(button.id);
+    });
+});
